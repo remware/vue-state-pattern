@@ -12,6 +12,7 @@ const portfinder = require('portfinder')
 
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
@@ -64,7 +65,8 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         to: config.dev.assetsSubDirectory,
         ignore: ['.*']
       }
-    ])
+    ]),
+    new VueLoaderPlugin()
   ]
 })
 
